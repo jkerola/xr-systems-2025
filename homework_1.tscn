@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://bk4s2821crq17"]
+
+[ext_resource type="Script" path="res://homework_1.gd" id="1_lbvoe"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jmn5d"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_it0sy"]
+sky_material = SubResource("ProceduralSkyMaterial_jmn5d")
+
+[sub_resource type="Environment" id="Environment_7pq48"]
+background_mode = 2
+sky = SubResource("Sky_it0sy")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_u5od5"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kk8pp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1ywsr"]
+material = SubResource("StandardMaterial3D_kk8pp")
+size = Vector3(0.1, 10, 10)
+
+[node name="world" type="Node3D"]
+script = ExtResource("1_lbvoe")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7pq48")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="left_hand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+
+[node name="right_hand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"right_hand"
+
+[node name="level" type="Node3D" parent="."]
+
+[node name="floor" type="MeshInstance3D" parent="level"]
+mesh = SubResource("BoxMesh_u5od5")
+
+[node name="ceiling" type="MeshInstance3D" parent="level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+mesh = SubResource("BoxMesh_u5od5")
+
+[node name="walls" type="Node3D" parent="level"]
+
+[node name="wall" type="MeshInstance3D" parent="level/walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93529, 5, 0)
+mesh = SubResource("BoxMesh_1ywsr")
+skeleton = NodePath("../../floor")
+
+[node name="wall2" type="MeshInstance3D" parent="level/walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.06471, 5, 0)
+mesh = SubResource("BoxMesh_1ywsr")
+skeleton = NodePath("../../floor")
+
+[node name="wall3" type="MeshInstance3D" parent="level/walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0647144, 5, 5)
+mesh = SubResource("BoxMesh_1ywsr")
+skeleton = NodePath("../../floor")
+
+[node name="wall4" type="MeshInstance3D" parent="level/walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0647144, 5, -5)
+mesh = SubResource("BoxMesh_1ywsr")
+skeleton = NodePath("../../floor")
