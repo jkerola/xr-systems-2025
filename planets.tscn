@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm3bv5jpvfje0"]
+
+[ext_resource type="Script" path="res://planets.gd" id="1_ge03s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3g0i"]
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.0
+ao_enabled = true
+ao_light_affect = 1.0
+backlight_enabled = true
+backlight = Color(0.830335, 0.830335, 0.830335, 1)
+refraction_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_mdjjc"]
+material = SubResource("StandardMaterial3D_s3g0i")
+radius = 0.125
+height = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t733f"]
+transparency = 1
+albedo_color = Color(0.68, 1, 0.776, 0.12549)
+emission_enabled = true
+emission = Color(0.451091, 0.659748, 0.684985, 1)
+emission_operator = 1
+rim = 0.0
+clearcoat_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_ishcb"]
+material = SubResource("StandardMaterial3D_t733f")
+radius = 0.25
+height = 0.5
+
+[node name="planets" type="Node3D"]
+script = ExtResource("1_ge03s")
+
+[node name="orbiter" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="orbiter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.287919, 0, 0)
+mesh = SubResource("SphereMesh_mdjjc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ishcb")

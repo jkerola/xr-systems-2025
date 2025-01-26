@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dilcc2et5kv5j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ju4i"]
+albedo_color = Color(0.118581, 0.118581, 0.118581, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c48yk"]
+material = SubResource("StandardMaterial3D_6ju4i")
+size = Vector3(6, 20, 6)
+
+[sub_resource type="PrismMesh" id="PrismMesh_ly0kj"]
+material = SubResource("StandardMaterial3D_6ju4i")
+size = Vector3(8, 2, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v56bs"]
+material = SubResource("StandardMaterial3D_6ju4i")
+size = Vector3(6, 6, 0.2)
+
+[node name="tower" type="Node3D"]
+
+[node name="bottom" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_c48yk")
+
+[node name="top" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.5982, 0)
+mesh = SubResource("PrismMesh_ly0kj")
+
+[node name="wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 13.0143, 0)
+mesh = SubResource("BoxMesh_v56bs")
+skeleton = NodePath("../top")
+
+[node name="wall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 13.0143, 0)
+mesh = SubResource("BoxMesh_v56bs")
+skeleton = NodePath("../top")
+
+[node name="wall3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 13.0143, -3)
+mesh = SubResource("BoxMesh_v56bs")
+skeleton = NodePath("../top")
+
+[node name="wall5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 8.72856, 3)
+mesh = SubResource("BoxMesh_v56bs")
+skeleton = NodePath("../top")

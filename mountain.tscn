@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpd654driqlnv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3gq2d"]
+albedo_color = Color(0.147997, 0.0779051, 0.0120571, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qqgwt"]
+material = SubResource("StandardMaterial3D_3gq2d")
+size = Vector3(30, 30, 30)
+
+[node name="mountain" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.622126, -0.38097, -0.683974, -0.51173, 0.463309, -0.723517, 0.59253, 0.800129, 0.0932829, 0, 0.308105, 0)
+mesh = SubResource("BoxMesh_qqgwt")
