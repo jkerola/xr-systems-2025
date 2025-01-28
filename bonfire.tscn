@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://i2bvdo0yeq8u"]
+[gd_scene load_steps=12 format=3 uid="uid://i2bvdo0yeq8u"]
 
+[ext_resource type="Script" path="res://bonfire.gd" id="1_4duso"]
 [ext_resource type="Texture2D" uid="uid://dpbp2khm56yhc" path="res://fire_01.png" id="1_ayxsr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xch7g"]
@@ -10,7 +11,7 @@ material = SubResource("StandardMaterial3D_xch7g")
 size = Vector3(0.1, 0.05, 0.4)
 
 [sub_resource type="Gradient" id="Gradient_8ropf"]
-colors = PackedColorArray(0.92549, 0.262745, 0, 1, 1, 0.341694, 0.31994, 1)
+colors = PackedColorArray(1, 0.341694, 0.31994, 1, 1, 0.341694, 0.31994, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_2mwhp"]
 gradient = SubResource("Gradient_8ropf")
@@ -51,7 +52,8 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_5fojk"]
 material = SubResource("StandardMaterial3D_2nsbk")
 
-[node name="Node3D" type="Node3D"]
+[node name="bonfire" type="Node3D"]
+script = ExtResource("1_4duso")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117953, 0, 0)
@@ -70,3 +72,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0765703, 0)
 amount = 12
 process_material = SubResource("ParticleProcessMaterial_d3ahn")
 draw_pass_1 = SubResource("QuadMesh_5fojk")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0520706, 0.237569, 0)
+light_color = Color(0.842008, 0.529707, 0.434804, 1)
+light_energy = 0.5
+shadow_enabled = true
+distance_fade_enabled = true
