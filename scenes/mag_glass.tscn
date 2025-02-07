@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://de2a1uq3kl3ey"]
+
+[ext_resource type="Script" path="res://scenes/mag_glass.gd" id="1_lattf"]
+[ext_resource type="Shader" path="res://scenes/mag_glass.gdshader" id="2_cx5i0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4dxgu"]
+render_priority = 0
+shader = ExtResource("2_cx5i0")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lncl8"]
+material = SubResource("ShaderMaterial_4dxgu")
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.05
+
+[sub_resource type="TorusMesh" id="TorusMesh_lr7s3"]
+inner_radius = 0.25
+outer_radius = 0.26
+ring_segments = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rv2v3"]
+albedo_color = Color(0.477536, 0.19103, 0.188611, 1)
+metallic_specular = 0.75
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a3v7c"]
+material = SubResource("StandardMaterial3D_rv2v3")
+top_radius = 0.01
+bottom_radius = 0.03
+height = 0.25
+
+[node name="mag_glass" type="Node3D"]
+script = ExtResource("1_lattf")
+
+[node name="glass" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.702481, 0)
+mesh = SubResource("CylinderMesh_lncl8")
+
+[node name="ring" type="MeshInstance3D" parent="glass"]
+mesh = SubResource("TorusMesh_lr7s3")
+
+[node name="handle" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.335134, 0)
+mesh = SubResource("CylinderMesh_a3v7c")
+skeleton = NodePath("../glass")

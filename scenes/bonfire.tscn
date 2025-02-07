@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://i2bvdo0yeq8u"]
 
-[ext_resource type="Script" path="res://bonfire.gd" id="1_4duso"]
-[ext_resource type="Texture2D" uid="uid://dpbp2khm56yhc" path="res://fire_01.png" id="1_ayxsr"]
+[ext_resource type="Script" path="res://scenes/bonfire.gd" id="1_4duso"]
+[ext_resource type="Texture2D" uid="uid://dpbp2khm56yhc" path="res://textures/fire_01.png" id="1_ayxsr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xch7g"]
 albedo_color = Color(0.179585, 0.0877905, 0.0400023, 1)

@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://homework_1.gd" id="1_lbvoe"]
 [ext_resource type="Texture2D" uid="uid://hxsjc1imxyyk" path="res://blender/texture_archive/NightSkyHDRI008_1K-HDR.exr" id="2_d86rp"]
-[ext_resource type="PackedScene" uid="uid://dilcc2et5kv5j" path="res://tower.tscn" id="3_irdx3"]
+[ext_resource type="PackedScene" uid="uid://dilcc2et5kv5j" path="res://scenes/tower.tscn" id="3_irdx3"]
 [ext_resource type="MeshLibrary" uid="uid://edulc8epnyah" path="res://tileset.tres" id="3_lta6l"]
-[ext_resource type="PackedScene" uid="uid://bpd654driqlnv" path="res://mountain.tscn" id="3_y4i8g"]
-[ext_resource type="PackedScene" uid="uid://i2bvdo0yeq8u" path="res://bonfire.tscn" id="4_murj2"]
-[ext_resource type="PackedScene" uid="uid://cm3bv5jpvfje0" path="res://planets.tscn" id="5_gau36"]
-[ext_resource type="PackedScene" uid="uid://ckfd4osvi3vlx" path="res://sign.tscn" id="6_julu1"]
-[ext_resource type="PackedScene" uid="uid://c545r8op2435" path="res://tree.tscn" id="7_3yi0e"]
+[ext_resource type="PackedScene" uid="uid://bpd654driqlnv" path="res://scenes/mountain.tscn" id="3_y4i8g"]
+[ext_resource type="PackedScene" uid="uid://i2bvdo0yeq8u" path="res://scenes/bonfire.tscn" id="4_murj2"]
+[ext_resource type="PackedScene" uid="uid://cm3bv5jpvfje0" path="res://scenes/planets.tscn" id="5_gau36"]
+[ext_resource type="PackedScene" uid="uid://ckfd4osvi3vlx" path="res://scenes/sign.tscn" id="6_julu1"]
+[ext_resource type="PackedScene" uid="uid://c545r8op2435" path="res://scenes/tree.tscn" id="7_3yi0e"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_hjvqg"]
 panorama = ExtResource("2_d86rp")
