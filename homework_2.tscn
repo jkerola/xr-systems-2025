@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://tqt2nonr6xs"]
+[gd_scene load_steps=13 format=3 uid="uid://tqt2nonr6xs"]
 
 [ext_resource type="Script" path="res://homework_2.gd" id="1_nuvcl"]
-[ext_resource type="MeshLibrary" uid="uid://edulc8epnyah" path="res://tileset.tres" id="1_ovv0x"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_nojad"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_dvs81"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="3_quugk"]
-[ext_resource type="PackedScene" uid="uid://de2a1uq3kl3ey" path="res://scenes/mag_glass.tscn" id="5_21h8m"]
+[ext_resource type="PackedScene" uid="uid://bqs5elku51tu6" path="res://scenes/mag_pickable.tscn" id="5_wf76k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n51r8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -19,6 +19,17 @@ sky = SubResource("Sky_u3cyi")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxMesh" id="BoxMesh_hrt0d"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_43c5b"]
+data = PackedVector3Array(-5, 0.05, 5, 5, 0.05, 5, -5, -0.05, 5, 5, 0.05, 5, 5, -0.05, 5, -5, -0.05, 5, 5, 0.05, -5, -5, 0.05, -5, 5, -0.05, -5, -5, 0.05, -5, -5, -0.05, -5, 5, -0.05, -5, 5, 0.05, 5, 5, 0.05, -5, 5, -0.05, 5, 5, 0.05, -5, 5, -0.05, -5, 5, -0.05, 5, -5, 0.05, -5, -5, 0.05, 5, -5, -0.05, -5, -5, 0.05, 5, -5, -0.05, 5, -5, -0.05, -5, 5, 0.05, 5, -5, 0.05, 5, 5, 0.05, -5, -5, 0.05, 5, -5, 0.05, -5, 5, 0.05, -5, -5, -0.05, 5, 5, -0.05, 5, -5, -0.05, -5, 5, -0.05, 5, 5, -0.05, -5, -5, -0.05, -5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_omfrr"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pv3u0"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_nuvcl")
 
@@ -28,15 +39,6 @@ environment = SubResource("Environment_fk27a")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
-
-[node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("1_ovv0x")
-cell_size = Vector3(1, 1, 1)
-cell_center_z = false
-data = {
-"cells": PackedInt32Array(65537, 1, 2, 65536, 1, 2, 65536, 0, 2, 65537, 0, 2, 65536, 65535, 2, 65537, 2, 2, 65536, 2, 2, 65537, 65535, 2, 65538, 65535, 2, 65538, 0, 2, 65538, 2, 2, 65538, 1, 4, 131071, 65535, 2, 131071, 0, 2, 131071, 1, 2, 131071, 2, 2, 131070, 2, 2, 131070, 1, 2, 131070, 0, 2, 131070, 65535, 2)
-}
-metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -51,17 +53,38 @@ tracker = &"left_hand"
 
 [node name="LeftHand" parent="XROrigin3D/left_hand" instance=ExtResource("2_nojad")]
 
+[node name="FunctionPickup" parent="XROrigin3D/left_hand/LeftHand" instance=ExtResource("3_dvs81")]
+
+[node name="FunctionPickup2" parent="XROrigin3D/left_hand/LeftHand" instance=ExtResource("3_dvs81")]
+
 [node name="right_hand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.8, -0.5)
 tracker = &"right_hand"
 
 [node name="RightHand" parent="XROrigin3D/right_hand" instance=ExtResource("3_quugk")]
 
-[node name="mag_glass" parent="XROrigin3D/right_hand/RightHand" node_paths=PackedStringArray("camera") instance=ExtResource("5_21h8m")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.0268549, -0.2356, 0.0320719)
-camera = NodePath("../../../mag_cam")
+[node name="FunctionPickup" parent="XROrigin3D/right_hand" instance=ExtResource("3_dvs81")]
 
-[node name="mag_cam" type="Camera3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+[node name="mag" parent="." instance=ExtResource("5_wf76k")]
+transform = Transform3D(1.16763e-08, 0.997511, 0.0705052, -6.58833e-09, -0.0705052, 0.997511, 1, -1.21117e-08, 5.74869e-09, 0.479367, 0.982242, -0.0946825)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_hrt0d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_43c5b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.289312, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.981581, 0.4638, 0)
+mesh = SubResource("BoxMesh_omfrr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.981581, 0.4638, 0)
+shape = SubResource("ConcavePolygonShape3D_pv3u0")
 
 [connection signal="button_pressed" from="XROrigin3D/right_hand" to="." method="_on_right_hand_button_pressed"]

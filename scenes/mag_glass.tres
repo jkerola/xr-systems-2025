@@ -93,7 +93,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-750.849, 528.251)
 modes/cull = 2
 flags/unshaded = true
 flags/world_vertex_coords = true
