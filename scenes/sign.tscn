@@ -37,10 +37,9 @@ emission_enabled = true
 
 [sub_resource type="TextMesh" id="TextMesh_t1tba"]
 material = SubResource("StandardMaterial3D_e6un0")
-text = "Ponder the orbs
-A 	- Teleport out
-B -  Stop existing
-Trigger - Feed fire"
+text = "Inspect the prison
+Triggers - Grab object
+B -  Stop existing"
 font_size = 14
 
 [node name="sign" type="Node3D"]
